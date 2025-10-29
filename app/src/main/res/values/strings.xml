@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProyectoViewModel</string>
+
+<!--    Tipo de pizzas-->
+    <string name="Romana">Romana</string>
+    <string name="Barbacoa">Barbacoa</string>
+    <string name="Margarita">Margarita</string>
+
+
+
+</resources>
