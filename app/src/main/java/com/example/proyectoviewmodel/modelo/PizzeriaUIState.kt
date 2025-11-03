@@ -1,7 +1,11 @@
 package com.example.proyectoviewmodel.modelo
 
 data class PizzeriaUIState(
-    var listaPedidos: MutableSet<Pedido> = mutableSetOf()
+    val pizza: String ="",
+    val bebida: String="",
+    val cantidadbebidas: Int =0 ,
+    val cantidadpizzas: Int =0,
+    val preciopizza: Double=0.0
 ){
 
 }

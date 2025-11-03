@@ -7,5 +7,15 @@
     <string name="Margarita">Margarita</string>
 
 
+    <!-- Tamaño de pizzas-->
+    <string name="pequena">Pequeña</string>
+    <string name="mediana">Mediana</string>
+    <string name="grande">Grande</string>
+
+    <!-- Bebida -->
+    <string name="agua">Agua</string>
+    <string name="cola">Cola</string>
+    <string name="sinbebida">Sin bebida</string>
+
 
 </resources>

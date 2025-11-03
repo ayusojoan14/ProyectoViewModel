@@ -1,13 +1,9 @@
 package com.example.proyectoviewmodel.modelo
 
 data class Pedido(
-    var tipoPizza: String = "",
-    var carne: String = "",
-    var tamano: String = "",
-    var bebida: String = "",
-    var cantidad: Int,
-    var cantidadPizzas: Int,
-    var precioPizza: Double,
-    var precioBebida: Double,
-    var precioFinal: Double
+    val pizza: String,
+    val bebida: String,
+    val cantidadbebidas: Int ,
+    val cantidadpizzas: Int,
+    val preciopizza: Double
 )
