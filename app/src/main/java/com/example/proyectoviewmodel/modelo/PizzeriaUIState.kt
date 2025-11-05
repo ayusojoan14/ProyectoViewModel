@@ -5,7 +5,7 @@ data class PizzeriaUIState(
     val tamanopizza: String ="",
     val bebida: String="",
     val cantidadbebidas: Int =0 ,
-    val cantidadpizzas: Int =0,
+    val cantidadpizzas: Int =1,
     val preciopizza: Double=0.0,
     val preciobebida: Double=0.0,
     val preciofinal: Double=0.0,

@@ -1,5 +1,7 @@
 package com.example.proyectoviewmodel.ui.ui.viewmodel
 
+import android.R.attr.onClick
+import androidx.compose.material3.Text
 import androidx.lifecycle.ViewModel
 import com.example.proyectoviewmodel.modelo.Bebida
 import com.example.proyectoviewmodel.modelo.Pago
@@ -19,7 +21,7 @@ class PizzeriaViewModel : ViewModel() {
 
     private lateinit var tipoPizza: String
 
-
+    private lateinit var pizza: Pizza
     private lateinit var bebida: Bebida
     private lateinit var pago: Pago
     private var cantidadbebidas: Int = 0
@@ -78,4 +80,26 @@ class PizzeriaViewModel : ViewModel() {
             estadoActual.copy(preciobebida = pBebida, preciopizza = pPizza, preciofinal = precioTotal )
         }
     }
+    fun bebidasS(c: Int){
+        _uiState.update { estadoActual ->
+            estadoActual.copy(cantidadbebidas = c)
+        }
+    }
+
+    fun pizzaCN(c:Int){
+        _uiState.update { estadoActual ->
+            estadoActual.copy(cantidadpizzas = c)
+        }
+    }
+
+    fun precioconTodo(pPizza: Double, pBebida: Double, cPizza: Int, cBebida: Int){
+        preciototal  = (pPizza*cPizza)+(pBebida*cBebida)
+        _uiState.update { estadoActual ->
+            estadoActual.copy(
+                preciopizza = pPizza, preciobebida = pBebida, preciofinal = preciototal,
+                cantidadpizzas = cPizza, cantidadbebidas = cBebida
+            )
+        }
+    }
 }
+

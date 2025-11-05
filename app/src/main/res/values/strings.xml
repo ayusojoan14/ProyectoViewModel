@@ -18,4 +18,10 @@
     <string name="sinbebida">Sin bebida</string>
 
 
+
+    <string name="cantidad_de_pizzas">Cantidad de pizzas</string>
+    <string name="cantidad_de_bebidas">Cantidad de bebidas</string>
+    <string name="precio_total">"TOTAL: "</string>
+
+
 </resources>
