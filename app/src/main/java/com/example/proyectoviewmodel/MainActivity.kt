@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,6 +40,11 @@ import com.example.proyectoviewmodel.modelo.PizzeriaUIState
 import com.example.proyectoviewmodel.ui.ui.theme.ProyectoViewModelTheme
 import com.example.proyectoviewmodel.ui.ui.viewmodel.PizzeriaViewModel
 
+enum class Pantallas(@StringRes val titulo: Int){
+    Inicio(titulo = R.string.pantalla_inicio),
+    Pantalla1(titulo = R.string.realizar_pedido),
+    Pantalla2(titulo = R.string.formulariodepago)
+}
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +52,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProyectoViewModelTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SeleccionPediodo()
+                    PantallaInicio()
                 }
             }
         }
