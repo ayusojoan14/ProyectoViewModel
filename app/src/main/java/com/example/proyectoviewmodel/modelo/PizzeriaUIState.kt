@@ -9,6 +9,14 @@ data class PizzeriaUIState(
     val preciopizza: Double=0.0,
     val preciobebida: Double=0.0,
     val preciofinal: Double=0.0,
+
+//    Pago
+    val tipotarjeta: String ="",
+    val numerotarjeta: String="",
+    val fechacaducidad: String = "",
+    val cvc: String = "",
+
+
     val listaPedidos: MutableSet<Pedido> = mutableSetOf()
 ){
 

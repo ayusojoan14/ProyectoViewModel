@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">ViewModelProject</string>
+
+    <!-- Tipo de pizzas -->
+    <string name="Romana">Roman</string>
+    <string name="Barbacoa">Barbecue</string>
+    <string name="Margarita">Margherita</string>
+
+    <!-- Tamaño de pizzas -->
+    <string name="pequena">Small</string>
+    <string name="mediana">Medium</string>
+    <string name="grande">Large</string>
+
+    <!-- Bebida -->
+    <string name="agua">Water</string>
+    <string name="cola">Cola</string>
+    <string name="sinbebida">No drink</string>
+
+    <string name="cantidad_de_pizzas">Number of pizzas</string>
+    <string name="cantidad_de_bebidas">Number of drinks</string>
+    <string name="precio_total">"TOTAL: "</string>
+    <string name="seleccione_las_opciones_correctas">"Select the correct options: "</string>
+    <string name="VISA">Visa</string>
+    <string name="MasterCard">MasterCard</string>
+    <string name="euros_6000">Euros 6000</string>
+    <string name="nombre">Name: </string>
+    <string name="apellido">"Surnames: "</string>
+    <string name="correo">"Email: "</string>
+    <string name="numero_telefono">Phone number:</string>
+    <string name="bienvenido">Welcome to Pizza Time</string>
+    <string name="listar_pedidos">List Orders</string>
+    <string name="realizar_pedido">Place Order</string>
+    <string name="pantalla_inicio">Home Screen</string>
+    <string name="formulariodepago">Payment Form</string>
+    <string name="numero_de_tarjeta">Card number</string>
+    <string name="fecha">Expiration date</string>
+    <string name="cvc">CVC</string>
+    <string name="cancelar">Cancel</string>
+    <string name="aceptar">Accept</string>
+
+
+
+
+</resources>

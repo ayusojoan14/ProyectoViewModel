@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProyectoViewModelTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PantallaInicio()
+                    FormularioPago()
                 }
             }
         }
