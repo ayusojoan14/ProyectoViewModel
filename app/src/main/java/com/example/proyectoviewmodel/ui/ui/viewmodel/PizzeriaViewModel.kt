@@ -51,6 +51,20 @@ class PizzeriaViewModel : ViewModel() {
             tamanopizza = tamp
         )}
     }
+    fun crearBbeida(
+        tip: String,
+        p: Double
+    ){
+        bebida = Bebida(
+            tip,
+            p
+        )
+        _uiState.update{estadoActual ->
+            estadoActual.copy(
+                bebida = tip,
+                preciobebida = p
+            )}
+    }
     fun crearPago(tipotarjeta: String,
         numTarjeta: String,
         fecha: String,

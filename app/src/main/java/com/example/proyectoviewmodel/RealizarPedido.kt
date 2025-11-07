@@ -81,6 +81,15 @@ fun SeleccionPediodo(
                     total = uiState.preciofinal
                 )
             }
+        crearPizza(
+            tamp = uiState.tamanopizza,
+            tip = uiState.pizza
+        )
+        crearBebida(
+            tip = uiState.bebida,
+            p = uiState.preciobebida
+
+        )
     }
 
     Column (modifier = modifier
@@ -348,4 +357,22 @@ fun PrecioFinal(
         }
     }
 
+}
+
+@Composable
+fun crearPizza( tip: String,
+                tamp: String,
+                modifier: Modifier = Modifier,
+                PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+){
+    PizzeriaViewModel.crearPizza(tip,tamp)
+}
+@Composable
+fun crearBebida(
+    tip: String,
+    p: Double,
+    modifier: Modifier = Modifier,
+    PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+){
+    PizzeriaViewModel.crearBbeida(tip,p)
 }
