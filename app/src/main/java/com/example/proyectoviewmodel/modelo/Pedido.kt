@@ -1,10 +1,11 @@
 package com.example.proyectoviewmodel.modelo
 
 data class Pedido(
-    val pizza: Pizza,
-    val bebida: Bebida,
-    val pag: Pago,
-    val cantidadbebidas: Int ,
-    val cantidadpizzas: Int,
-    val preciofinal: Double
+    val pizza: String,
+    val tamanyo: String,
+    val bebida: String,
+    val cantidadPizzas: Int,
+    val cantidadBebidas: Int,
+    val total: Double,
+
 )

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -18,7 +19,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun PantallaInicio( modifier: Modifier = Modifier){
+fun PantallaInicio(
+    onListarPedido: ()-> Unit,
+    onRealizarPedido: ()-> Unit,
+    modifier: Modifier = Modifier
+){
     val imagen = painterResource(id=R.drawable.logo)
     Column(
         modifier = Modifier
@@ -46,31 +51,25 @@ fun PantallaInicio( modifier: Modifier = Modifier){
         Text("${stringResource(R.string.correo)} $CORREO")
         Text("${stringResource(R.string.numero_telefono)} $NUMERO")
 
-
-        BotonSiguientes()
-
-
-    }
-}
-@Composable
-fun BotonSiguientes(modifier: Modifier = Modifier){
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
+        Spacer(modifier = Modifier.weight(1F))
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
 
 
-        Button(onClick = {
+            Button(onClick = onListarPedido)  {
+                Text(stringResource(R.string.listar_pedidos))
+            }
 
-        }) {
-            Text(stringResource(R.string.listar_pedidos))
+            Button(onClick = onRealizarPedido)
+                // REDIRIGIR A RESUMEN DEL PAGO
+             {
+                Text(stringResource(R.string.realizar_pedido))
+            }
+
         }
 
-        Button(onClick = {
-            // REDIRIGIR A RESUMEN DEL PAGO
-        }) {
-            Text(stringResource(R.string.realizar_pedido))
-        }
 
     }
 }

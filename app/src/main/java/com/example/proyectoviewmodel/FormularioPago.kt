@@ -56,9 +56,7 @@ fun FormularioPago(
         CVC(
             cvc = uiState.cvc
         )
-        Botones(
-
-        )
+        Botones()
 
     }
 
@@ -219,7 +217,7 @@ fun Botones(
         }
 
         Button(onClick = {
-            PizzeriaViewModel.crearPago(tipotarjeta, numTarjeta, fecha, cvc)
+
             // REDIRIGIR A RESUMEN DEL PAGO
         }) {
             Text(stringResource(R.string.aceptar))

@@ -31,9 +31,11 @@ import com.example.proyectoviewmodel.ui.ui.viewmodel.PizzeriaViewModel
 
 
 @Composable
-fun SeleccionPediodo(
+fun SeleccionPedido(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+    onAceptar: ()-> Unit,
+    onCancelar: ()-> Unit
 ){
     val uiState by PizzeriaViewModel.uiState.collectAsState()
 
@@ -81,15 +83,26 @@ fun SeleccionPediodo(
                     total = uiState.preciofinal
                 )
             }
-        crearPizza(
-            tamp = uiState.tamanopizza,
-            tip = uiState.pizza
-        )
-        crearBebida(
-            tip = uiState.bebida,
-            p = uiState.preciobebida
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
 
-        )
+
+            Button(onClick = onCancelar)
+            // REDIRIGIR A RESUMEN DEL PAGO
+            {
+                Text(stringResource(R.string.cancelar))
+            }
+
+            Button(onClick = onAceptar)  {
+                Text(stringResource(R.string.aceptar))
+            }
+
+
+
+        }
+
     }
 
     Column (modifier = modifier

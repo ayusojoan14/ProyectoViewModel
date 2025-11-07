@@ -16,7 +16,7 @@ data class PizzeriaUIState(
     val fechacaducidad: String = "",
     val cvc: String = "",
 
-
+    val pedidoActual: Pedido ? =null,
     val listaPedidos: MutableSet<Pedido> = mutableSetOf()
 ){
 

@@ -37,6 +37,14 @@
     <string name="cvc">CVC</string>
     <string name="cancelar">Cancel</string>
     <string name="aceptar">Accept</string>
+    <string name="atras">Back</string>
+    <string name="resumenpedido">Order Summary</string>
+    <string name="resumenpago">Payment Summary</string>
+    <string name="volver">Back</string>
+    <string name="pagar">Pay</string>
+
+
+
 
 
 

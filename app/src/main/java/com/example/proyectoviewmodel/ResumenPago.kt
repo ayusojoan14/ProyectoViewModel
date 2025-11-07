@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun ResumenPago( modifier: Modifier = Modifier){
-    val imagen = painterResource(id=R.drawable.credito)
+
     Column (
         modifier = modifier
             .fillMaxWidth()
@@ -34,10 +34,6 @@ fun ResumenPago( modifier: Modifier = Modifier){
 
 
     }
-        Image(
-            painter = imagen,
-            contentDescription = null
-        )
 
         Text("Se ha realizado el pago correctamente")
         Text("Con un importe total de: 6.50€")

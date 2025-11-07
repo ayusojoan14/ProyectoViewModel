@@ -26,6 +26,7 @@ class PizzeriaViewModel : ViewModel() {
 
     private lateinit var pizza: Pizza
     private lateinit var bebida: Bebida
+    private lateinit var pedido: Pedido
     private lateinit var pago: Pago
     private var cantidadbebidas: Int = 0
     private var cantidadpizzas: Int = 0
@@ -35,7 +36,23 @@ class PizzeriaViewModel : ViewModel() {
     val listaPedidos: MutableSet<Pedido> = mutableSetOf()
 
 
-    private lateinit var tipoBebida: String
+
+    // FUNCIONES DE PEDIDO FINAL
+    fun realizarPedidoActual() {
+        val estado = _uiState.value
+        val pedido = Pedido(
+            pizza = estado.pizza,
+            tamanyo = estado.tamanopizza,
+            bebida = estado.bebida,
+            cantidadPizzas = estado.cantidadpizzas,
+            cantidadBebidas = estado.cantidadbebidas,
+            total = estado.preciofinal,
+        )
+        _uiState.update { it.copy(pedidoActual = pedido) }
+    }
+
+
+
 
     fun crearPizza(
         tip: String,
@@ -103,9 +120,6 @@ class PizzeriaViewModel : ViewModel() {
         }
     }
 
-    fun actualizarLetraUsuario(letraRespuesta: String) {
-        numerotarjeta = letraRespuesta
-    }
 
     fun seleccionarTamano(tamano: String) {
         _uiState.update { estadoActual ->

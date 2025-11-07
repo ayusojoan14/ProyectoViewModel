@@ -38,6 +38,11 @@
     <string name="cvc">CVC</string>
     <string name="cancelar">Cancelar</string>
     <string name="aceptar">Aceptar</string>
+    <string name="atras">Atras</string>
+    <string name="resumenpedido">Resumen Pedido</string>
+    <string name="resumenpago">Resumen de Pago</string>
+    <string name="volver">Volver</string>
+    <string name="pagar">Pagar</string>
 
 
 </resources>
