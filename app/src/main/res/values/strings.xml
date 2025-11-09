@@ -43,6 +43,10 @@
     <string name="resumenpago">Resumen de Pago</string>
     <string name="volver">Volver</string>
     <string name="pagar">Pagar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="no_hay_pedidos_realizados">No hay pedidos realizados</string>
+    <string name="resumen_del_pedido">RESUMEN DEL PEDIDO</string>
+
 
 
 </resources>

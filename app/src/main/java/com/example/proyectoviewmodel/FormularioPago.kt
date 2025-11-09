@@ -4,6 +4,7 @@ import android.media.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -36,27 +37,52 @@ import kotlin.String
 @Composable
 fun FormularioPago(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    onAceptar: ()-> Unit,
+    onCancelar: ()-> Unit,
+    PizzeriaViewModel: PizzeriaViewModel
 ){
     val uiState by PizzeriaViewModel.uiState.collectAsState()
     Column (
         modifier = Modifier
             .fillMaxWidth()
     ){
-        TipoTarjeta()
-        NumeroTarjeta(
-            numTarjeta = uiState.numerotarjeta
+        TipoTarjeta(
+            PizzeriaViewModel = PizzeriaViewModel
         )
-        Row {
-            Text(uiState.numerotarjeta)
-        }
+        NumeroTarjeta(
+            numTarjeta = uiState.numerotarjeta,
+            PizzeriaViewModel = PizzeriaViewModel
+        )
+
         FechaCaducidad(
-            fecha = uiState.fechacaducidad
+            fecha = uiState.fechacaducidad,
+            PizzeriaViewModel = PizzeriaViewModel
         )
         CVC(
-            cvc = uiState.cvc
+            cvc = uiState.cvc,
+            PizzeriaViewModel = PizzeriaViewModel
         )
-        Botones()
+        Spacer(modifier = Modifier.weight(1F))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+
+
+            Button(onClick = onCancelar)
+            // REDIRIGIR A RESUMEN DEL PAGO
+            {
+                Text(stringResource(R.string.cancelar))
+            }
+
+            Button(onClick = onAceptar)  {
+                Text(stringResource(R.string.aceptar))
+            }
+
+
+
+        }
 
     }
 
@@ -65,7 +91,7 @@ fun FormularioPago(
 @Composable
 fun TipoTarjeta (
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 ){
     val uiState by PizzeriaViewModel.uiState.collectAsState()
 
@@ -124,7 +150,7 @@ fun TipoTarjeta (
 @Composable
 fun NumeroTarjeta (
     numTarjeta: String,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 ){
     Column (
         modifier = Modifier,
@@ -151,7 +177,7 @@ fun NumeroTarjeta (
 fun FechaCaducidad (
     modifier: Modifier = Modifier,
     fecha: String,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
     ){
     Column (
         modifier = Modifier,
@@ -163,7 +189,10 @@ fun FechaCaducidad (
             value = fecha,
             onValueChange = { PizzeriaViewModel.actualizarfecha(it)   },
             label = { Text(stringResource(R.string.fecha)) },
-            singleLine = true,
+           singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
         )
     }
 }
@@ -172,7 +201,7 @@ fun FechaCaducidad (
 fun CVC (
     modifier: Modifier = Modifier,
     cvc: String,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 
 ){
     Column (
@@ -186,42 +215,10 @@ fun CVC (
             onValueChange = { PizzeriaViewModel.actualizarcvc(it)   },
             label = { Text(stringResource(R.string.cvc)) },
             singleLine = true,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp)
         )
-    }
-}
-@Composable
-fun Botones(
-    modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
-){
-    var tipotarjeta: String =""
-    var numTarjeta: String=""
-    var fecha: String=""
-    var cvc: String=""
-    Row(
-        modifier = modifier
-            .fillMaxWidth(),
-        verticalAlignment = Alignment.Bottom,
-        horizontalArrangement = Arrangement.SpaceEvenly,
-
-        ) {
-
-
-        Button(onClick = {
-
-            // REDIRIGIR A PANTALLA INICIAL
-        }) {
-            Text(stringResource(R.string.cancelar))
-
-        }
-
-        Button(onClick = {
-
-            // REDIRIGIR A RESUMEN DEL PAGO
-        }) {
-            Text(stringResource(R.string.aceptar))
-        }
-
     }
 }

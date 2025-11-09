@@ -3,6 +3,7 @@ package com.example.proyectoviewmodel
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -33,7 +34,7 @@ import com.example.proyectoviewmodel.ui.ui.viewmodel.PizzeriaViewModel
 @Composable
 fun SeleccionPedido(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+    PizzeriaViewModel: PizzeriaViewModel,
     onAceptar: ()-> Unit,
     onCancelar: ()-> Unit
 ){
@@ -43,10 +44,12 @@ fun SeleccionPedido(
         modifier = modifier
     ) {
         Row {
-            SeleccionarPizza(modifier = Modifier.padding(top = 25.dp))
+            SeleccionarPizza(modifier = Modifier.padding(top = 25.dp),
+                PizzeriaViewModel= PizzeriaViewModel )
         }
         Row {
-            SeleccionarTamano(modifier = Modifier.padding())
+            SeleccionarTamano(modifier = Modifier.padding(),
+                PizzeriaViewModel = PizzeriaViewModel)
         }
         Row {
             Precio(
@@ -56,20 +59,23 @@ fun SeleccionPedido(
                 tamanopizza = uiState.tamanopizza,
                 bebidaS = uiState.preciobebida,
                 pPizza = uiState.preciopizza,
-                precio = uiState.preciofinal
+                precio = uiState.preciofinal,
+                PizzeriaViewModel = PizzeriaViewModel
             )
         }
         Row (modifier = Modifier
             .fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ){
-                BotonesB()
+                BotonesB( PizzeriaViewModel = PizzeriaViewModel)
             }
             Row (modifier = Modifier
                 .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ){
-                BotonesP()
+                BotonesP(
+                    PizzeriaViewModel = PizzeriaViewModel
+                )
             }
             Row (modifier = Modifier
                 .fillMaxWidth(),
@@ -80,12 +86,15 @@ fun SeleccionPedido(
                     pBebida = uiState.preciobebida,
                     cPizza = uiState.cantidadpizzas,
                     cBebida = uiState.cantidadbebidas,
-                    total = uiState.preciofinal
+                    total = uiState.preciofinal,
+                    PizzeriaViewModel = PizzeriaViewModel
                 )
             }
+        Spacer(modifier = Modifier.weight(1F))
         Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
         ) {
 
 
@@ -109,7 +118,8 @@ fun SeleccionPedido(
         .padding(start = 200.dp)
     ){
         Row {
-            SeleccionarBebida(modifier = Modifier.padding(top = 25.dp))
+            SeleccionarBebida(modifier = Modifier.padding(top = 25.dp),
+                PizzeriaViewModel = PizzeriaViewModel)
         }
     }
 }
@@ -118,7 +128,7 @@ fun SeleccionPedido(
 @Composable
 fun SeleccionarPizza(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 ) {
     // 🔹 Recogemos el estado actual del ViewModel
     val uiState by PizzeriaViewModel.uiState.collectAsState()
@@ -169,7 +179,7 @@ fun SeleccionarPizza(
 @Composable
 fun SeleccionarBebida(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 ) {
     //Recogemos el estado actual del ViewModel
     val uiState by PizzeriaViewModel.uiState.collectAsState()
@@ -219,7 +229,7 @@ fun SeleccionarBebida(
 @Composable
 fun SeleccionarTamano (
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 ){
     // 🔹 Recogemos el estado actual del ViewModel
     val uiState by PizzeriaViewModel.uiState.collectAsState()
@@ -275,7 +285,7 @@ fun Precio(
     bebidaS: Double,
     pPizza: Double,
     precio: Double,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel()
+    PizzeriaViewModel: PizzeriaViewModel
 ){
     PizzeriaViewModel.precioenTotal(bebidaS,pPizza)
 }
@@ -283,7 +293,7 @@ fun Precio(
 @Composable
 fun BotonesB(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+    PizzeriaViewModel: PizzeriaViewModel,
 ) {
 
     var cantidaN by remember { mutableStateOf(0) }
@@ -317,7 +327,7 @@ fun BotonesB(
 @Composable
 fun BotonesP(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+    PizzeriaViewModel: PizzeriaViewModel ,
 ) {
 
     var cantidaN by remember { mutableStateOf(1) }
@@ -350,7 +360,7 @@ fun BotonesP(
 @Composable
 fun PrecioFinal(
     modifier: Modifier = Modifier,
-    PizzeriaViewModel: PizzeriaViewModel = viewModel(),
+    PizzeriaViewModel: PizzeriaViewModel ,
     pPizza: Double,
     pBebida: Double,
     cPizza: Int,

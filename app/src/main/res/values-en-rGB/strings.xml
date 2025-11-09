@@ -42,6 +42,10 @@
     <string name="resumenpago">Payment Summary</string>
     <string name="volver">Back</string>
     <string name="pagar">Pay</string>
+    <string name="no_hay_pedidos_realizados">No orders placed</string>
+    <string name="resumen_del_pedido">ORDER SUMMARY</string>
+    <string name="confirmar">Confirm</string>
+
 
 
 

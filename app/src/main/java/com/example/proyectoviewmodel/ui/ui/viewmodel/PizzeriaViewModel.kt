@@ -1,6 +1,7 @@
 package com.example.proyectoviewmodel.ui.ui.viewmodel
 
 import android.R.attr.onClick
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -48,7 +49,12 @@ class PizzeriaViewModel : ViewModel() {
             cantidadBebidas = estado.cantidadbebidas,
             total = estado.preciofinal,
         )
-        _uiState.update { it.copy(pedidoActual = pedido) }
+        if (pedido.pizza == "" || pedido.tamanyo == ""){
+        }else{
+            listaPedidos.add(pedido)
+        }
+
+        _uiState.update { it.copy(pedidoActual = pedido, listaPedidos = listaPedidos) }
     }
 
 

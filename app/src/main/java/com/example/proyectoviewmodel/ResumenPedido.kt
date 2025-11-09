@@ -32,7 +32,8 @@ import java.util.Objects.toString
 fun PantallaResumenPedido(
     pedidoActual: Pedido?,
     onVolver: () -> Unit,
-    onPagar: () -> Unit
+    onPagar: () -> Unit,
+    PizzeriaViewModel: PizzeriaViewModel
 ) {
 
     Column(
@@ -79,8 +80,9 @@ fun PantallaResumenPedido(
                     )
                 }
                 Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
                 ) {
 
 

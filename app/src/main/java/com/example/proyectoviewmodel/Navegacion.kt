@@ -64,12 +64,14 @@ fun PizzaTime(
         val uiState by PizzeriaViewModel.uiState.collectAsState()
 
         NavHost(
+
             navController = navController,
             startDestination = Pantallas.Inicio.name,
             modifier = Modifier.padding(innerPadding)
         ){
             composable(route = Pantallas.Inicio.name) {
                 PantallaInicio(
+
                     onListarPedido = {
                         navController.navigate(Pantallas.ListarPedido.name)
                     },
@@ -83,6 +85,7 @@ fun PizzaTime(
             }
             composable(route = Pantallas.RealizarPedido.name){
                 SeleccionPedido(
+                    PizzeriaViewModel = PizzeriaViewModel,
                     onAceptar = {
                         PizzeriaViewModel.realizarPedidoActual()
                         navController.navigate(Pantallas.ResumenPedido.name)
@@ -94,17 +97,45 @@ fun PizzaTime(
             }
             composable(route = Pantallas.ListarPedido.name){
                 Pedidos(
+                    PizzeriaViewModel = PizzeriaViewModel,
                     onVolver = {
                         navController.popBackStack()
                     },
                 )
             }
             composable (route = Pantallas.ResumenPedido.name ){
+                val uiState by PizzeriaViewModel.uiState.collectAsState()
                 PantallaResumenPedido(
+                    pedidoActual = uiState.pedidoActual,
+                    PizzeriaViewModel = PizzeriaViewModel,
                     onVolver = {
                         navController.popBackStack()
                     },
                     onPagar ={ navController.navigate(Pantallas.FormularioPago.name)}
+                )
+            }
+            composable (route = Pantallas.FormularioPago.name ){
+                FormularioPago(
+                    PizzeriaViewModel = PizzeriaViewModel,
+                    onCancelar = {
+                        navController.popBackStack()
+                    },
+                    onAceptar = {
+                        navController.navigate(Pantallas.ResumenPago.name)
+                    }
+                )
+
+            }
+            composable (route = Pantallas.ResumenPago.name ){
+                PantallaResumenPago(
+                    PizzeriaViewModel = PizzeriaViewModel,
+                    onVolver = {
+                        navController.popBackStack()
+                    },
+                    onPagar = {
+                        navController.navigate(Pantallas.Inicio.name)
+                        PizzeriaViewModel.realizarPedidoActual()
+                    }
                 )
             }
 
