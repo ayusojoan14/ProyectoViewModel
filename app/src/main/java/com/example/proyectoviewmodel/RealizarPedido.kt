@@ -152,8 +152,8 @@ fun SeleccionarPizza(
                     Modifier
                         .height(50.dp)
                         .selectable(
-                            selected = (text == uiState.pizza), // 🔹 valor del estado
-                            onClick = { PizzeriaViewModel.seleccionarPizza(text) }, // 🔹 actualiza ViewModel
+                            selected = (text == uiState.pizza),
+                            onClick = { PizzeriaViewModel.seleccionarPizza(text) },
                             role = Role.RadioButton
                         )
                         .padding(horizontal = 15.dp),

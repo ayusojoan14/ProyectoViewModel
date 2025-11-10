@@ -55,8 +55,27 @@ class PizzeriaViewModel : ViewModel() {
         }
 
         _uiState.update { it.copy(pedidoActual = pedido, listaPedidos = listaPedidos) }
+        limpiarUiState()
     }
 
+    fun limpiarUiState() {
+        _uiState.update { estado ->
+            estado.copy(
+                pizza = "",
+                tamanopizza = "",
+                bebida = "",
+                cantidadbebidas = 0,
+                cantidadpizzas = 1,
+                preciopizza = 0.0,
+                preciobebida = 0.0,
+                preciofinal = 0.0,
+                tipotarjeta = "",
+                numerotarjeta = "",
+                fechacaducidad = "",
+                cvc = "",
+            )
+        }
+    }
 
 
 
